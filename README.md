@@ -1,4 +1,4 @@
-# flyaway-testapp
+# Xonotic on Agones in Yandex Cloud demo
 
 How to apply code:
 1. Register in Yandex Cloud and obtain OAuth token (https://cloud.yandex.com/en-ru/docs/iam/concepts/authorization/oauth-token)
