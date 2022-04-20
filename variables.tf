@@ -3,6 +3,11 @@ variable "token" {
   type        = string
 }
 
+variable "whitelist_subnets" {
+  description = "Whitelisted subnets to access cluster. Use 0.0.0.0/0 to publicly access from anywhere"
+  type        = list(string)
+}
+
 variable "cloud_id" {
   description = "Token"
   type        = string
