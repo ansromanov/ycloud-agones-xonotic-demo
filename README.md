@@ -2,7 +2,7 @@
 
 How to apply code:
 1. Register in Yandex Cloud and obtain OAuth token (https://cloud.yandex.com/en-ru/docs/iam/concepts/authorization/oauth-token)
-1. Install YC CLI curl https://storage.yandexcloud.net/yandexcloud-yc/install.sh | bash
+1. Install YC CLI `curl https://storage.yandexcloud.net/yandexcloud-yc/install.sh | bash`
 1. Install Terraform, Kubectl, Helm
 1. Create `terraform.tfvars` file with following content:
     ```terraform
