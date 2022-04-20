@@ -1,9 +1,10 @@
 # flyaway-testapp
 
 How to apply code:
+1. Register in Yandex Cloud and obtain OAuth token (https://cloud.yandex.com/en-ru/docs/iam/concepts/authorization/oauth-token)
 1. Install YC CLI curl https://storage.yandexcloud.net/yandexcloud-yc/install.sh | bash
-2. Install Terraform
-3. Create `terraform.tfvars` file with following content:
+1. Install Terraform, Kubectl, Helm
+1. Create `terraform.tfvars` file with following content:
     ```terraform
     token        = <Yandex.Cloud token>
     cloud_id     = <Yandex.Cloud cloud id>
@@ -15,12 +16,28 @@ How to apply code:
       "env"     = "dev"
     }
     default_zone = "ru-central1-a"
+    whitelist_subnets = [<publicly access subnets>]
     ```
 1. Deploy k8s cluster with `terraform apply`
 1. Get cluster credentials
-  ```sh
-  yc managed-kubernetes cluster get-credentials flyaway-xonotic-k8s-cluster --external
-  ```
+    ```sh
+    yc managed-kubernetes cluster get-credentials flyaway-xonotic-k8s-cluster --external
+    ```
+1. Deploy Agones `./kubernetes/01-agones.sh`
+1. Deploy Xonotic on Agones `./kubernetes/02-xonotic.sh`
+1. Check server status `kubectl get gs`
+1. Check connection
+    ```sh
+    nc -u {IP} {PORT}
+    Hello World !
+    ACK: Hello World !
+    EXIT
+    ```
+1. Destroy lab
+    ```sh
+    ./kubernetes/99-destroy.sh
+    terraform destroy
+    ```
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Requirements

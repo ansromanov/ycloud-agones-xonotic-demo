@@ -41,7 +41,7 @@ resource "yandex_vpc_security_group" "vpc_default" {
     protocol       = "TCP"
     description    = "Allow LB"
     port           = -1
-    v4_cidr_blocks = ["198.18.235.0/24", "198.18.248.0/24"]
+    v4_cidr_blocks = ["198.18.235.0/24", "198.18.248.0/24", "51.250.0.0/16"]
   }
 
   ingress {
@@ -191,7 +191,7 @@ resource "yandex_kubernetes_node_group" "default" {
 
   scale_policy {
     fixed_scale {
-      size = 1
+      size = 2
     }
   }
 
